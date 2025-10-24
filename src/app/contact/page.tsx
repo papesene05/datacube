@@ -1,7 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import { Mail, Phone, MapPin, Send, CheckCircle } from 'lucide-react'
+import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react'
+import { sendContactEmail, validateContactForm, type ContactFormData } from '@/lib/emailService'
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -16,6 +17,8 @@ export default function ContactPage() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [errors, setErrors] = useState<string[]>([])
+  const [submitError, setSubmitError] = useState<string>('')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
@@ -27,12 +30,44 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setErrors([])
+    setSubmitError('')
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000))
-    
-    setIsSubmitting(false)
-    setIsSubmitted(true)
+    try {
+      // Validation des données
+      const validation = validateContactForm(formData as ContactFormData)
+      
+      if (!validation.isValid) {
+        setErrors(validation.errors)
+        setIsSubmitting(false)
+        return
+      }
+
+      // Envoi de l'email
+      const success = await sendContactEmail(formData as ContactFormData)
+      
+      if (success) {
+        setIsSubmitted(true)
+        // Réinitialiser le formulaire
+        setFormData({
+          name: '',
+          email: '',
+          company: '',
+          phone: '',
+          subject: '',
+          message: '',
+          budget: '',
+          timeline: ''
+        })
+      } else {
+        setSubmitError('Une erreur est survenue lors de l\'envoi du message. Veuillez réessayer ou nous contacter directement.')
+      }
+    } catch (error) {
+      console.error('Erreur lors de la soumission:', error)
+      setSubmitError('Une erreur inattendue est survenue. Veuillez réessayer.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const contactInfo = [
@@ -172,6 +207,32 @@ export default function ContactPage() {
                 </h2>
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Affichage des erreurs de validation */}
+                  {errors.length > 0 && (
+                    <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+                      <div className="flex items-center mb-2">
+                        <AlertCircle className="w-5 h-5 text-red-600 mr-2" />
+                        <h3 className="text-sm font-medium text-red-800">
+                          Veuillez corriger les erreurs suivantes :
+                        </h3>
+                      </div>
+                      <ul className="list-disc list-inside text-sm text-red-700 space-y-1">
+                        {errors.map((error, index) => (
+                          <li key={index}>{error}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {/* Affichage des erreurs de soumission */}
+                  {submitError && (
+                    <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+                      <div className="flex items-center">
+                        <AlertCircle className="w-5 h-5 text-red-600 mr-2" />
+                        <p className="text-sm text-red-700">{submitError}</p>
+                      </div>
+                    </div>
+                  )}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">

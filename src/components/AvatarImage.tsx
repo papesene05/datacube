@@ -1,12 +1,15 @@
 'use client'
 
+import Image from 'next/image'
+
 interface AvatarImageProps {
   name: string
   size?: 'sm' | 'md' | 'lg'
   className?: string
+  photoUrl?: string
 }
 
-const AvatarImage = ({ name, size = 'md', className = '' }: AvatarImageProps) => {
+const AvatarImage = ({ name, size = 'md', className = '', photoUrl }: AvatarImageProps) => {
   const getSizeClasses = () => {
     switch (size) {
       case 'sm':
@@ -43,6 +46,37 @@ const AvatarImage = ({ name, size = 'md', className = '' }: AvatarImageProps) =>
     return colors[hash % colors.length]
   }
 
+  // Si une photo est fournie, l'afficher
+  if (photoUrl) {
+    return (
+      <div className={`${getSizeClasses()} ${className}`}>
+        <div className="w-full h-full rounded-full overflow-hidden">
+          <Image
+            src={photoUrl}
+            alt={`Photo de ${name}`}
+            width={size === 'sm' ? 40 : size === 'lg' ? 96 : 64}
+            height={size === 'sm' ? 40 : size === 'lg' ? 96 : 64}
+            className="w-full h-full object-cover"
+            onError={(e) => {
+              // En cas d'erreur de chargement, afficher l'avatar par défaut
+              const target = e.target as HTMLImageElement
+              target.style.display = 'none'
+              const parent = target.parentElement
+              if (parent) {
+                parent.innerHTML = `
+                  <div class="w-full h-full bg-gradient-to-br ${getGradient(name)} rounded-full flex items-center justify-center text-white font-semibold">
+                    ${getInitials(name)}
+                  </div>
+                `
+              }
+            }}
+          />
+        </div>
+      </div>
+    )
+  }
+
+  // Avatar par défaut avec gradient
   return (
     <div className={`${getSizeClasses()} ${className}`}>
       <div className={`w-full h-full bg-gradient-to-br ${getGradient(name)} rounded-full flex items-center justify-center text-white font-semibold`}>
