@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { ChevronLeft, ChevronRight, Star, Quote } from 'lucide-react'
+import AvatarImage from './AvatarImage'
 
 const TestimonialsSection = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0)
@@ -14,7 +15,7 @@ const TestimonialsSection = () => {
       company: 'TechCorp',
       content: 'DataCube a transformé notre approche de la data. Leur système de recommandation IA a augmenté nos ventes de 40% en seulement 3 mois. Une équipe exceptionnelle !',
       rating: 5,
-      avatar: '/api/placeholder/80/80'
+      avatar: 'gradient'
     },
     {
       id: 2,
@@ -23,7 +24,7 @@ const TestimonialsSection = () => {
       company: 'StartupInnovante',
       content: 'L\'application mobile développée par DataCube dépasse toutes nos attentes. Interface intuitive, performance excellente et support réactif. Je recommande vivement !',
       rating: 5,
-      avatar: '/api/placeholder/80/80'
+      avatar: 'gradient'
     },
     {
       id: 3,
@@ -32,7 +33,7 @@ const TestimonialsSection = () => {
       company: 'DataSolutions',
       content: 'Leur expertise en machine learning nous a permis d\'automatiser des processus complexes. Résultats immédiats et ROI exceptionnel. Partenaire de confiance.',
       rating: 5,
-      avatar: '/api/placeholder/80/80'
+      avatar: 'gradient'
     },
     {
       id: 4,
@@ -41,7 +42,7 @@ const TestimonialsSection = () => {
       company: 'EnterprisePlus',
       content: 'Migration cloud réussie grâce à DataCube. Architecture robuste, sécurité renforcée et coûts optimisés. Un accompagnement professionnel du début à la fin.',
       rating: 5,
-      avatar: '/api/placeholder/80/80'
+      avatar: 'gradient'
     }
   ]
 
@@ -94,11 +95,7 @@ const TestimonialsSection = () => {
               </div>
 
               <div className="flex items-center justify-center space-x-4">
-                <div className="w-12 h-12 bg-gradient-to-r from-primary-600 to-accent-600 rounded-full flex items-center justify-center">
-                  <span className="text-white font-semibold text-lg">
-                    {current.name.charAt(0)}
-                  </span>
-                </div>
+                <AvatarImage name={current.name} size="md" />
                 <div className="text-left">
                   <div className="font-semibold text-gray-900">{current.name}</div>
                   <div className="text-sm text-gray-600">{current.position}</div>

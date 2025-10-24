@@ -1,4 +1,5 @@
 import { Users, Award, Target, Heart, Lightbulb, Shield, Globe, Zap } from 'lucide-react'
+import AvatarImage from '@/components/AvatarImage'
 
 export const metadata = {
   title: 'À propos - DataCube',
@@ -12,7 +13,7 @@ export default function AboutPage() {
       role: 'CEO & Co-fondatrice',
       expertise: 'Intelligence Artificielle',
       description: '15 ans d\'expérience en IA, ancienne directrice technique chez Google.',
-      avatar: '/api/placeholder/200/200',
+      avatar: 'gradient',
       linkedin: '#'
     },
     {
@@ -20,7 +21,7 @@ export default function AboutPage() {
       role: 'CTO & Co-fondateur',
       expertise: 'Data Science',
       description: 'Expert en Big Data et Machine Learning, PhD en Informatique.',
-      avatar: '/api/placeholder/200/200',
+      avatar: 'gradient',
       linkedin: '#'
     },
     {
@@ -28,7 +29,7 @@ export default function AboutPage() {
       role: 'Lead Developer',
       expertise: 'Développement Web',
       description: 'Spécialiste React/Node.js, architecte de solutions web complexes.',
-      avatar: '/api/placeholder/200/200',
+      avatar: 'gradient',
       linkedin: '#'
     },
     {
@@ -36,7 +37,7 @@ export default function AboutPage() {
       role: 'Mobile Developer',
       expertise: 'Développement Mobile',
       description: 'Expert React Native et Flutter, créateur d\'apps primées.',
-      avatar: '/api/placeholder/200/200',
+      avatar: 'gradient',
       linkedin: '#'
     }
   ]
@@ -204,10 +205,8 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {team.map((member, index) => (
               <div key={index} className="text-center">
-                <div className="w-32 h-32 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <span className="text-2xl font-bold text-gray-600">
-                    {member.name.split(' ').map(n => n[0]).join('')}
-                  </span>
+                <div className="mx-auto mb-4">
+                  <AvatarImage name={member.name} size="lg" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-1">
                   {member.name}

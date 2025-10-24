@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { Calendar, User, Clock, Search, Tag, ArrowRight, Filter } from 'lucide-react'
 import BlogImage from '@/components/BlogImage'
+import AvatarImage from '@/components/AvatarImage'
 
 export default function BlogPage() {
   const [selectedCategory, setSelectedCategory] = useState('all')
@@ -16,11 +17,11 @@ export default function BlogPage() {
       excerpt: 'Découvrez comment l\'IA transforme l\'expérience d\'achat en ligne et augmente les ventes grâce aux recommandations personnalisées.',
       content: 'Contenu complet de l\'article...',
       slug: 'ia-ecommerce-recommandations',
-      image: '/api/placeholder/600/400',
+      image: 'gradient',
       category: 'Intelligence Artificielle',
       tags: ['IA', 'E-commerce', 'Machine Learning', 'Recommandations'],
       author: 'Marie Dubois',
-      authorAvatar: '/api/placeholder/40/40',
+      authorAvatar: 'gradient',
       publishedAt: '2024-01-15',
       readTime: '5 min',
       featured: true
@@ -31,11 +32,11 @@ export default function BlogPage() {
       excerpt: 'Les meilleures pratiques pour créer des dashboards efficaces qui facilitent la prise de décision dans votre entreprise.',
       content: 'Contenu complet de l\'article...',
       slug: 'data-science-dashboards-optimisation',
-      image: '/api/placeholder/600/400',
+      image: 'gradient',
       category: 'Data Science',
       tags: ['Data Science', 'Visualisation', 'Business Intelligence', 'Analytics'],
       author: 'Jean Martin',
-      authorAvatar: '/api/placeholder/40/40',
+      authorAvatar: 'gradient',
       publishedAt: '2024-01-10',
       readTime: '7 min',
       featured: true
@@ -46,11 +47,11 @@ export default function BlogPage() {
       excerpt: 'Un aperçu des technologies et frameworks qui vont marquer le développement web cette année.',
       content: 'Contenu complet de l\'article...',
       slug: 'developpement-web-tendances-2024',
-      image: '/api/placeholder/600/400',
+      image: 'gradient',
       category: 'Développement Web',
       tags: ['Web', 'Tendances', 'React', 'Next.js', 'Performance'],
       author: 'Sophie Laurent',
-      authorAvatar: '/api/placeholder/40/40',
+      authorAvatar: 'gradient',
       publishedAt: '2024-01-05',
       readTime: '6 min',
       featured: false
@@ -61,11 +62,11 @@ export default function BlogPage() {
       excerpt: 'Comparaison détaillée entre le développement natif et cross-platform pour choisir la meilleure approche.',
       content: 'Contenu complet de l\'article...',
       slug: 'mobile-native-vs-crossplatform',
-      image: '/api/placeholder/600/400',
+      image: 'gradient',
       category: 'Développement Mobile',
       tags: ['Mobile', 'React Native', 'Flutter', 'Performance', 'Développement'],
       author: 'Pierre Moreau',
-      authorAvatar: '/api/placeholder/40/40',
+      authorAvatar: 'gradient',
       publishedAt: '2023-12-28',
       readTime: '8 min',
       featured: false
@@ -76,11 +77,11 @@ export default function BlogPage() {
       excerpt: 'Introduction complète au machine learning avec des exemples pratiques et des cas d\'usage concrets.',
       content: 'Contenu complet de l\'article...',
       slug: 'machine-learning-guide-debutants',
-      image: '/api/placeholder/600/400',
+      image: 'gradient',
       category: 'Intelligence Artificielle',
       tags: ['Machine Learning', 'IA', 'Python', 'Débutant', 'Tutoriel'],
       author: 'Marie Dubois',
-      authorAvatar: '/api/placeholder/40/40',
+      authorAvatar: 'gradient',
       publishedAt: '2023-12-20',
       readTime: '12 min',
       featured: false
@@ -91,11 +92,11 @@ export default function BlogPage() {
       excerpt: 'Les mesures essentielles à mettre en place pour sécuriser vos applications web et protéger vos données.',
       content: 'Contenu complet de l\'article...',
       slug: 'securite-applications-web-bonnes-pratiques',
-      image: '/api/placeholder/600/400',
+      image: 'gradient',
       category: 'Développement Web',
       tags: ['Sécurité', 'Web', 'HTTPS', 'Authentification', 'Bonnes pratiques'],
       author: 'Jean Martin',
-      authorAvatar: '/api/placeholder/40/40',
+      authorAvatar: 'gradient',
       publishedAt: '2023-12-15',
       readTime: '9 min',
       featured: false

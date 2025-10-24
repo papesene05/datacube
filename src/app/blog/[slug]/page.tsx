@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { ArrowLeft, Calendar, User, Clock, Tag } from 'lucide-react'
+import AvatarImage from '@/components/AvatarImage'
 
 // Données des articles (en attendant l'intégration Strapi)
 const blogPosts = {
@@ -46,7 +47,7 @@ const blogPosts = {
     category: 'Intelligence Artificielle',
     tags: ['IA', 'E-commerce', 'Machine Learning', 'Recommandations'],
     author: 'Marie Dubois',
-    authorAvatar: '/api/placeholder/40/40',
+    authorAvatar: 'gradient',
     publishedAt: '2024-01-15',
     readTime: '5 min',
     featured: true
@@ -90,7 +91,7 @@ const blogPosts = {
     category: 'Data Science',
     tags: ['Data Science', 'Visualisation', 'Business Intelligence', 'Analytics'],
     author: 'Jean Martin',
-    authorAvatar: '/api/placeholder/40/40',
+    authorAvatar: 'gradient',
     publishedAt: '2024-01-10',
     readTime: '7 min',
     featured: true
@@ -134,7 +135,7 @@ const blogPosts = {
     category: 'Développement Web',
     tags: ['Web', 'Tendances', 'React', 'Next.js', 'Performance'],
     author: 'Sophie Laurent',
-    authorAvatar: '/api/placeholder/40/40',
+    authorAvatar: 'gradient',
     publishedAt: '2024-01-05',
     readTime: '6 min',
     featured: false
@@ -178,7 +179,7 @@ const blogPosts = {
     category: 'Développement Mobile',
     tags: ['Mobile', 'React Native', 'Flutter', 'Performance', 'Développement'],
     author: 'Pierre Moreau',
-    authorAvatar: '/api/placeholder/40/40',
+    authorAvatar: 'gradient',
     publishedAt: '2023-12-28',
     readTime: '8 min',
     featured: false
@@ -221,7 +222,7 @@ const blogPosts = {
     category: 'Intelligence Artificielle',
     tags: ['Machine Learning', 'IA', 'Python', 'Débutant', 'Tutoriel'],
     author: 'Marie Dubois',
-    authorAvatar: '/api/placeholder/40/40',
+    authorAvatar: 'gradient',
     publishedAt: '2023-12-20',
     readTime: '12 min',
     featured: false
@@ -265,7 +266,7 @@ const blogPosts = {
     category: 'Développement Web',
     tags: ['Sécurité', 'Web', 'HTTPS', 'Authentification', 'Bonnes pratiques'],
     author: 'Jean Martin',
-    authorAvatar: '/api/placeholder/40/40',
+    authorAvatar: 'gradient',
     publishedAt: '2023-12-15',
     readTime: '9 min',
     featured: false
