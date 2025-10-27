@@ -57,6 +57,10 @@ const AvatarImage = ({ name, size = 'md', className = '', photoUrl }: AvatarImag
             width={size === 'sm' ? 40 : size === 'lg' ? 96 : 64}
             height={size === 'sm' ? 40 : size === 'lg' ? 96 : 64}
             className="w-full h-full object-cover"
+            priority={size === 'lg'} // Priorité pour les grandes images
+            placeholder="blur"
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+            sizes={size === 'sm' ? '40px' : size === 'lg' ? '96px' : '64px'}
             onError={(e) => {
               // En cas d'erreur de chargement, afficher l'avatar par défaut
               const target = e.target as HTMLImageElement

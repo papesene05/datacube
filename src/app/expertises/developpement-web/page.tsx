@@ -3,9 +3,20 @@ import { Code, Globe, Smartphone, Database, Zap, Shield, Users, Award } from 'lu
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Développement Web - DataCube',
-  description: 'Solutions web modernes et performantes. Développement d\'applications web, sites vitrine, e-commerce et plateformes sur mesure avec les dernières technologies.',
-  keywords: 'développement web, React, Next.js, applications web, sites vitrine, e-commerce, plateformes web',
+  title: 'Développement Web Paris | DataCube - Expert React & Next.js',
+  description: 'Développement web sur mesure à Paris : sites vitrine, e-commerce, applications web avec React, Next.js, TypeScript. Équipe experte, devis gratuit. Solutions performantes et sécurisées.',
+  keywords: 'développement web Paris, React Paris, Next.js Paris, développement application web, site vitrine Paris, e-commerce Paris, développement TypeScript, développeur web Paris, agence web Paris, développement sur mesure',
+  openGraph: {
+    title: 'Développement Web Paris | DataCube - Expert React & Next.js',
+    description: 'Développement web sur mesure à Paris : sites vitrine, e-commerce, applications web avec React, Next.js, TypeScript. Équipe experte, devis gratuit.',
+    type: 'website',
+    locale: 'fr_FR',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Développement Web Paris | DataCube - Expert React & Next.js',
+    description: 'Développement web sur mesure à Paris : sites vitrine, e-commerce, applications web avec React, Next.js, TypeScript.',
+  },
 }
 
 export default function DeveloppementWebPage() {

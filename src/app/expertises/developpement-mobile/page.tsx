@@ -3,9 +3,20 @@ import { Smartphone, Code, Zap, Shield, Users, Award, Globe, Database } from 'lu
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Développement Mobile - DataCube',
-  description: 'Applications mobiles natives et cross-platform. Développement iOS, Android et applications hybrides avec React Native, Flutter et les technologies natives.',
-  keywords: 'développement mobile, iOS, Android, React Native, Flutter, applications mobiles, cross-platform',
+  title: 'Développement Mobile Paris | DataCube - Expert React Native & Flutter',
+  description: 'Développement mobile sur mesure à Paris : applications iOS, Android, cross-platform avec React Native, Flutter. Équipe experte, devis gratuit. Apps performantes et primées.',
+  keywords: 'développement mobile Paris, React Native Paris, Flutter Paris, développement iOS Paris, développement Android Paris, application mobile Paris, développeur mobile Paris, agence mobile Paris, développement cross-platform',
+  openGraph: {
+    title: 'Développement Mobile Paris | DataCube - Expert React Native & Flutter',
+    description: 'Développement mobile sur mesure à Paris : applications iOS, Android, cross-platform avec React Native, Flutter. Équipe experte, devis gratuit.',
+    type: 'website',
+    locale: 'fr_FR',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Développement Mobile Paris | DataCube - Expert React Native & Flutter',
+    description: 'Développement mobile sur mesure à Paris : applications iOS, Android, cross-platform avec React Native, Flutter.',
+  },
 }
 
 export default function DeveloppementMobilePage() {

@@ -2,16 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Optimisation des polices - preload et font-display */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* Optimisation des performances */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   
   body {
     font-family: 'Inter', system-ui, sans-serif;
     line-height: 1.6;
+    /* Optimisation du rendu */
+    text-rendering: optimizeLegibility;
+    -webkit-text-size-adjust: 100%;
+  }
+  
+  /* Optimisation des images */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Optimisation des animations */
+  * {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
   }
 }
 

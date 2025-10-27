@@ -3,8 +3,20 @@ import AvatarImage from '@/components/AvatarImage'
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'À propos - DataCube',
-  description: 'Découvrez l\'équipe DataCube, notre mission et nos valeurs. Des experts passionnés qui transforment les entreprises avec l\'IA, la Data et le Développement.',
+  title: 'À propos - Équipe DataCube | 5 Experts IA & Développement Paris',
+  description: 'Découvrez l\'équipe DataCube : 5 experts passionnés en IA, Data Science et Développement basés à Paris. 52 ans d\'expérience collective. Transformez votre entreprise avec nos solutions sur mesure.',
+  keywords: 'équipe DataCube, experts IA Paris, data scientists Paris, développeurs web Paris, développeurs mobile Paris, startup tech Paris, équipe développement, experts intelligence artificielle France',
+  openGraph: {
+    title: 'À propos - Équipe DataCube | 5 Experts IA & Développement Paris',
+    description: 'Découvrez l\'équipe DataCube : 5 experts passionnés en IA, Data Science et Développement basés à Paris. 52 ans d\'expérience collective.',
+    type: 'website',
+    locale: 'fr_FR',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'À propos - Équipe DataCube | 5 Experts IA & Développement Paris',
+    description: 'Découvrez l\'équipe DataCube : 5 experts passionnés en IA, Data Science et Développement basés à Paris.',
+  },
 }
 
 export default function AboutPage() {

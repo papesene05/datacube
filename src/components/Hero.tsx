@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import Link from 'next/link'
 import { ArrowRight, Play, Brain, Database, Code, Smartphone } from 'lucide-react'
 
@@ -14,12 +14,14 @@ const Hero = () => {
     'Développement Mobile'
   ]
 
+  const updateText = useCallback(() => {
+    setCurrentText((prev) => (prev + 1) % texts.length)
+  }, [texts.length])
+
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentText((prev) => (prev + 1) % texts.length)
-    }, 3000)
+    const interval = setInterval(updateText, 3000)
     return () => clearInterval(interval)
-  }, [])
+  }, [updateText])
 
   const services = [
     { icon: Brain, label: 'IA', color: 'from-purple-500 to-pink-500' },
